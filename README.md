@@ -1,7 +1,7 @@
 
 --rules to execute the projects
 -->->
-install django latest version
+install django latest version<br>
 import the project folder to ide
 
 pip install django
