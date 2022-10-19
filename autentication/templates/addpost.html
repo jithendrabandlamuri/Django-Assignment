@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Create Task</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    h6 {
+      color: white
+    }
+    .form-box {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      margin: 6% auto;
+      padding: 5px;
+      overflow: hidden;
+      align-items: center;
+    }
+  </style>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav w-100">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'view' %}">
+            <h6>Click to view Tasks</h6>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_t' %}">
+            <h6>click to add Task</h6>
+          </a>
+        </li>
+        <li class="nav-item ms-auto">
+          <a class="nav-link" href="{% url 'logout' %}">
+            <h6>Logout</h6>
+          </a>
+        </li>
+    </div>
+  </nav>
+</head>
+
+<body>
+  <br><br><h1>ADD TASK</h1>
+  <div class="form-group">
+    <form method="POST" class="form-box">
+      {% csrf_token %}
+      {{form.as_p}}
+      <center><button class="btn btn-success">POST</button></center>
+    </form>
+  </div>
+  <script>
+    document.getElementById("user").value = "{{ user.id }}";
+  </script>
+</body>
+
+</html>

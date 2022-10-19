@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Task</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    h6 {
+      color: white
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav w-100">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'view' %}">
+            <h6>Click to view Tasks</h6>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_t' %}">
+            <h6>click to add Task</h6>
+          </a>
+        </li>
+        <li class="nav-item ms-auto">
+          <a class="nav-link" href="{% url 'logout' %}">
+            <h6>Logout</h6>
+          </a>
+        </li>
+    </div>
+  </nav>
+  <br><br><h1>Delete TASK</h1><br><br>
+  <div class="form-group">
+    <form method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <br><br><br><br><br><br>
+      <p style="text-align: center;">Are you sure you want to delete the task? <button> Delete</button><br><a class="btn" href="{% url 'view' %}" style="border: 1px solid black;height: 33px;background-color: rgb(209, 203, 203);">No</a></p>
+    </form>
+  </div>
+</body>
+
+</html>
